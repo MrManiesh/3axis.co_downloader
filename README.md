@@ -17,15 +17,15 @@ This Python script allows you to download files from 3Axis.com. It utilizes Sele
 ## Usage
 
 1. Clone the repository:
-   ```git clone https://github.com/your-username/3axis.co_downloader.git```
+   ```
+   git clone https://github.com/your-username/3axis.co_downloader.git```
 
 2. Change into the project directory:
-   ```bash
-      cd 3axis-downloader
+   ```
+   cd 3axis-downloader
 3. Install the required Python packages:
    ```
-    pip install -r requirements.txt
-```
+   pip install -r requirements.txt
 
 4. Download ChromeDriver:
    - Visit the <a href="https://sites.google.com/chromium.org/driver/downloads">ChromeDriver download page</a>.
