@@ -38,6 +38,11 @@ This Python script allows you to download files from 3Axis.com. It utilizes Sele
 6. Run the script:
    ```python downloader_3axis.co_web.py```
 
+## Screenshots
+![Example Image](https://example.com/path/to/your/screenshot.png)
+
+
+
 ## Options
 - Download new files: Download files from specified page range.
 - Download failed files again: Retry downloading files that failed in the previous attempt.
