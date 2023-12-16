@@ -39,13 +39,14 @@ This Python script allows you to download files from 3Axis.com. It utilizes Sele
    ```python downloader_3axis.co_web.py```
 
 ## Screenshots
-![Welcome Screen Image](Screenshots\1.png)
-![Option-1, Downloading files from page 1 to 3](Screenshots\3.png)
-![Option-2 Screen](Screenshots\2.png)
-![Option-3, Exit Screen](Screenshots\4.png)
-![Files in download folder](Screenshots\5.png)
-![Files in page folder](Screenshots\6.png)
-![log file in each page folder](Screenshots\7.png)
+
+![Welcome Screen Image](Screenshots/1.png)
+![Option-1, Downloading files from page 1 to 3](Screenshots/3.png)
+![Option-2 Screen](Screenshots/2.png)
+![Option-3, Exit Screen](Screenshots/4.png)
+![Files in download folder](Screenshots/5.png)
+![Files in page folder](Screenshots/6.png)
+![log file in each page folder](Screenshots/7.png)
 
 
 
