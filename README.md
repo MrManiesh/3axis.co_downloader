@@ -74,6 +74,6 @@ Downloaded_files/
 
 
 ## License
-This project is licensed under the ![MIT License](https://github.com/MrManiesh/3axis.co_downloader/blob/main/LICENSE).
+This project is licensed under the [MIT License](https://github.com/MrManiesh/3axis.co_downloader/blob/main/LICENSE).
 
 Feel free to contribute and report issues. Happy downloading!
