@@ -36,7 +36,8 @@ This Python script allows you to download files from 3Axis.com. It utilizes Sele
    - Move the chromedriver executable to the project directory.
 
 6. Run the script:
-   ```python downloader_3axis.co_web.py```
+   ```
+   python downloader_3axis.co_web.py
 
 ## Screenshots
 
