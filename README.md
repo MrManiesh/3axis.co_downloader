@@ -18,7 +18,7 @@ This Python script allows you to download files from 3Axis.com. It utilizes Sele
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/3axis.co_downloader.git```
+   git clone https://github.com/your-username/3axis.co_downloader.git
 
 2. Change into the project directory:
    ```
