@@ -31,11 +31,9 @@ This Python script allows you to download files from 3Axis.com. It utilizes Sele
    - Visit the <a href="https://sites.google.com/chromium.org/driver/downloads">ChromeDriver download page</a>.
    - Download the version compatible with your Chrome browser.
    - Extract the downloaded archive.
+   - [Read This](https://tilburgsciencehub.com/building-blocks/configure-your-computer/task-specific-configurations/configuring-python-for-webscraping) to setup chrome driver
 
-5. Move ChromeDriver to the project directory:
-   - Move the chromedriver executable to the project directory.
-
-6. Run the script:
+5. Run the script:
    ```
    python downloader_3axis.co_web.py
 
