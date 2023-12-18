@@ -54,7 +54,7 @@ def forEachPage(pageNo):
         # driver.maximize_window()
         # browser = webdriver.Chrome(options=options)
         driver.get(pageUrl)
-        print(f"{pageUrl.replace('/','')} - {driver.current_url.replace('/','')}")
+        # print(f"{pageUrl.replace('/','')} - {driver.current_url.replace('/','')}")
         if pageUrl.replace('/','') != driver.current_url.replace('/',''):
             print(f'Invalid page number - {pageNo}')
             return 0
@@ -87,24 +87,27 @@ def forEachPage(pageNo):
         logStore('Link Extraction Failed')
         print(Fore.RED + '❌ Link Extraction Failed')
 
-
+    # products = products[10:] # remove this line - testing purpose only
+    # products = [products[-5]] # remove this line - testing purpose only
     for oneProducts in products:
         print(Fore.YELLOW + Style.BRIGHT + '📂 Processing:', oneProducts[0])
         # break
-        file_extensions = ['cdr','dxf', 'stl', 'bmp','pdf','dwg'] 
+        file_extensions = ['cdr','dxf', 'stl', 'bmp','pdf','dwg','svg'] 
 
         def download_file(url, destination):
-            try:
+            # try:
                 response = requests.get(url)
                 response.raise_for_status()  # Raise an HTTPError for bad responses (4xx and 5xx)
                 
                 with open(f'{pagePath}/{destination}', 'wb') as file:
                     file.write(response.content)
                 
-                print(Fore.GREEN + f"✅ Downloaded Successfully: {destination}")
-            except requests.exceptions.RequestException as e:
-                logStore(f"Error Downloading File: {e}")
-                print(Fore.RED + f"❌ Error Downloading File: {e}")
+                return (True, Fore.GREEN + f"✅ Downloaded Successfully: {destination}")
+        
+            # except requests.exceptions.RequestException as e:
+            #     logStore(f"Error Downloading File: {e}")
+            #     print(Fore.RED + f"❌ Error Downloading File: {e}")
+            #     return False
 
 
 
@@ -112,34 +115,35 @@ def forEachPage(pageNo):
         def try_download_file(file_extension):
             try:
                 url = f"https://files.3axis.co/docs/{file_extension}/{oneProducts[1].split('/')[-1]}.{file_extension}"
-                download_file(url, f'{oneProducts[0]}.{file_extension}')
-                return True
+                return download_file(url, f'{oneProducts[0]}.{file_extension}')
+                
             except Exception as e:
-                if file_extension == 'zip':
-                    try:
-                        url = f"https://files.3axis.co/docs/{{file_extension}}/{oneProducts[1].split('/')[-1]}.zip"
-                        download_file(url, f'{oneProducts[0]}.{file_extension}')
-                        return True
-                    except Exception as e:
-                        logStore(f"Error Downloading {url, f'{oneProducts[0]}.{file_extension}'}: {e}")
-                        print(Fore.RED + f"❌ Error Downloading {url, f'{oneProducts[0]}.{file_extension}'}: {e}")
-                        return False
-                else:
-                    logStore(f"Error Downloading {url, f'{oneProducts[0]}.{file_extension}'}: {e}")
-                    print(Fore.RED + f"❌ Error Downloading {url, f'{oneProducts[0]}.{file_extension}'}: {e}")
-                    return False
-
+                try:
+                    url = f"https://files.3axis.co/docs/{file_extension}/{oneProducts[1].split('/')[-1]}.zip"
+                    # print(url)
+                    return download_file(url, f'{oneProducts[0]}.{file_extension}')
+                    # return True
+                except Exception as e:
+                    # logStore(f"Error Downloading {url, f'{oneProducts[0]}.{file_extension}'}: {e}")
+                    return (False, Fore.RED + f"Error Downloading {url, f'{oneProducts[0]}.{file_extension}'}: {e}")
+                    # return False
+      
 
         found = False
+        tryRes = ''
         for extension in file_extensions:
-            if try_download_file( extension):
+            # print('extension ::::::: ',extension)
+            tryRes = try_download_file(extension)
+            if tryRes[0] == True:
                 found = True
                 break
 
-        if not found:
-            print(Fore.RED + '❌ File Not Found')
-            print('--------------------------------------------------------------')
-
+        if found == False:
+            print('❌ ', end='')
+            print(tryRes[1])
+            logStore(tryRes[1])
+        else:
+            print(tryRes[1])
 
 
 
